@@ -1,0 +1,8 @@
+{
+  "name": "node-todo-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vasikarla/node-todo-api.git",
+  "author": "Raj Vasikarla <raj_vasikarla@intuit.com>",
+  "license": "MIT"
+}
