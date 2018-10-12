@@ -32,5 +32,15 @@ app.post('/todos', (req, res) => {
     console.log(req.body);    
 });
 
+//FETCH - GET
+app.get('/todos', (req, res) => {
+    
+    Todo.find().then((todos) => {
+        res.send({todos});    
+    }, (e) => {
+        res.body.status(400).send("Error");
+    });
+
+});
 
 module.exports = {app}
