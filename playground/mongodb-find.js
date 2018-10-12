@@ -9,15 +9,17 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   console.log('Connected to MongoDB server');
   const db = client.db("TodoApp");
 
-  //FETCH TODO's
+  // //FETCH ALL
   // var cursor = db.collection("Todos").find();
-  // console.log(cursor.toArray().then((docs) => {
-  //   console.log(docs);
-  // }, (err) => {
-  //   console.log(err);
+  // console.log(cursor.toArray().then((docs, err) => {
+  //   if (err) {
+  //     console.log("Error");
+  //   }
+  //   console.log(JSON.stringify(docs, undefined, 2));
   // }));
 
-  var cursor = db.collection("Todos").find();
+  //FETCH ONLY 1
+  var cursor = db.collection("Todos").find({_id: "5bc02d8206ea0306aefd5237"});
   console.log(cursor.toArray().then((docs, err) => {
     if (err) {
       console.log("Error");
