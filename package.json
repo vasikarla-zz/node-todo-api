@@ -6,6 +6,7 @@
   "author": "Raj Vasikarla <raj_vasikarla@intuit.com>",
   "license": "MIT",
   "dependencies": {
+    "faker": "^4.1.0",
     "mongodb": "^3.1.6"
   }
 }
