@@ -18,14 +18,23 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   //   console.log(JSON.stringify(docs, undefined, 2));
   // }));
 
-  //FETCH ONLY 1
-  var cursor = db.collection("Todos").find({_id: "5bc02d8206ea0306aefd5237"});
-  console.log(cursor.toArray().then((docs, err) => {
-    if (err) {
-      console.log("Error");
-    }
-    console.log(JSON.stringify(docs, undefined, 2));
-  }));
+  // //FETCH ONLY 1
+  // var cursor = db.collection("Todos").find({_id: "5bc02d8206ea0306aefd5237"});
+  // console.log(cursor.toArray().then((docs, err) => {
+  //   if (err) {
+  //     console.log("Error");
+  //   }
+  //   console.log(JSON.stringify(docs, undefined, 2));
+  // }));
+
+
+    //FETCH COUNT
+    var cursor = db.collection("Todos").find().count().then((docs, err) => {
+      if (err) {
+        console.log("Error");
+      }
+      console.log(JSON.stringify(docs, undefined, 2));
+    });
 
   // client.close();
 });

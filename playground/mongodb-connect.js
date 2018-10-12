@@ -20,5 +20,22 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   //   }
   //   console.log(JSON.stringify(res.ops[0]._id.getTimestamp(), undefined, 3));
   // })
+
+  // //FETCH ALL
+  // var cursor = db.collection("Users").find().toArray().then((data, err) => {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   console.log(JSON.stringify(data, undefined, 2));
+  // });
+
+ //FETCH ONE
+ var cursor = db.collection("Users").find({name: "Cicero Daniel"}).toArray().then((data, err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log("##########################\n" + JSON.stringify(data, undefined, 2));
+});
+
   client.close();
 });
