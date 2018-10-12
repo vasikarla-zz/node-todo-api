@@ -21,3 +21,18 @@ const Todo = mongoose.model('ToDos', {
 });
 
 module.exports = Todo;
+
+
+// //Creating a new ToDo
+// var newTodo = new Todo({
+//     text: "     Raj     ",
+//     completed: true,
+//     completedAt: 12345
+// });
+
+// newTodo.save().then((err, res) => {
+//     if (err) {
+//         console.log("This is error :" + err);
+//     }
+//     console.log(JSON.stringify(res, undefined, 2));
+// });
