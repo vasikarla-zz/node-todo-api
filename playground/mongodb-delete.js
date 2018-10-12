@@ -10,17 +10,17 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   const db = client.db("TodoApp");
 
     //DELETE MANY
-    // db.collection("Todos").deleteMany({text: "Walk the Dog"}).then((result) => {
+    // db.collection("Users").deleteMany({name: "Raj"}).then((result) => {
     //   console.log(result);
     // });
 
     //DELETE ONE
-    // db.collection("Todos").deleteOne({text: "Raj"}).then((result) => {
+    // db.collection("Users").deleteOne({text: "5bc02e905fbaa40e4ce51c4c"}).then((result) => {
     //   console.log(result);
     // });
 
     //FIND-ONE & DELETE
-    db.collection("Todos").findOneAndDelete({text: "Ryan"}).then((result) => {
+    db.collection("Users").findOneAndDelete({name: "Dan Collier"}).then((result) => {
       console.log(result);
     });
 
