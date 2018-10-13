@@ -15,7 +15,7 @@ const User = mongoose.model('Users', {
         required: true,
         minlength: 1,
         trim: true,
-        uniquie: true,
+        unique: true,
         validate: {
             validator: validator.isEmail,
             message: '{VALUE} is not a valid email'
@@ -38,4 +38,4 @@ const User = mongoose.model('Users', {
     }]
 });
 
-module.exports =  User;
+module.exports =  {User};
