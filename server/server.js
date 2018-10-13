@@ -17,7 +17,6 @@ app.listen('3000', () => {
 //Middleware
 app.use(bodyParser.json());
 
-//CRUD Operations
 //CREATE - POST
 app.post('/todos', (req, res) => {
     var todo = new Todo({
@@ -43,4 +42,4 @@ app.get('/todos', (req, res) => {
 
 });
 
-module.exports = {app}
+module.exports = {app};
