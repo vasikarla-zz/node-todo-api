@@ -17,7 +17,7 @@ app.listen('3000', () => {
 //Middleware
 app.use(bodyParser.json());
 
-//CREATE - POST
+//CREATE a Todo - POST
 app.post('/todos', (req, res) => {
     var todo = new Todo({
         text: req.body.text
@@ -29,6 +29,31 @@ app.post('/todos', (req, res) => {
         res.send(JSON.stringify(ret, undefined, 2));
     });
     console.log(req.body);    
+});
+
+//CREATE USERS
+app.post('/users', (req, res) => {
+    var user = new User({
+        email: req.body.email
+    });
+    user.save().then((ret, err) => {
+        if (err) {
+            res.status(400).send("Error");
+        }
+        res.send(JSON.stringify(ret, undefined, 2));
+    });
+    console.log(req.body);    
+});
+
+//FETCH USERS - GET
+app.get('/users', (req, res) => {
+    
+    User.find().then((users) => {
+        res.send({users});    
+    }, (e) => {
+        res.body.status(400).send("Error");
+    });
+
 });
 
 //FETCH - GET
