@@ -1,4 +1,4 @@
-var {mongoose} = require('./db/mongoose');
+var {mongoose, ObjectId} = require('./db/mongoose');
 var Todo = require('./models/todos');
 var User = require('./models/user');
 var faker = require('faker');
@@ -65,6 +65,17 @@ app.get('/todos', (req, res) => {
         res.body.status(400).send("Error");
     });
 
+});
+
+
+app.get('/todos/:id', (req, res) => {
+
+    var id = req.params.id;
+    Todo.find({_id: id}).then((todos) => {
+        console.log(JSON.stringify(todos, undefined, 2));
+    });
+    res.send(Todo);
+    res.send(req.params.id);
 });
 
 module.exports = {app};
