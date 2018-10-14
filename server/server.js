@@ -24,6 +24,7 @@ app.post('/todos', (req, res) => {
   });
 });
 
+
 app.post('/users', (req, res) => {
     var body = _.pick(req.body, ['email', 'password']);
     console.log(body);
@@ -42,6 +43,15 @@ app.get('/todos', (req, res) => {
     res.status(400).send(e);
   });
 });
+
+app.get('/users', (req, res) => {
+    User.find().then((users) => {
+      res.send({users});
+    }, (e) => {
+      res.status(400).send(e);
+    });
+  });
+  
 
 app.get('/todos/:id', (req, res) => {
   var id = req.params.id;

@@ -1,15 +1,7 @@
 const {mongoose} = require('../db/mongoose');
 const validator = require('validator');
-// {
-//     "   ": "vasikarla.raj@gmail.com",
-//     "password": "splendor",
-//     "tokens": [{
-//         access: "auth",
-//         token: "splendor-token"
-//     }]
-// };
 
-const User = mongoose.model('Users', {
+var UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
@@ -37,5 +29,9 @@ const User = mongoose.model('Users', {
         }
     }]
 });
+
+UserSchema.methods.generateAuthToken
+
+const User = mongoose.model('Users', UserSchema);
 
 module.exports =  {User};
