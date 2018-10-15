@@ -1,4 +1,4 @@
- const express = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
 const _ = require('lodash');
@@ -30,8 +30,7 @@ app.post('/users', (req, res) => {
     console.log(body);
     var user = new User(body);
     user.save().then((doc) => {
-      return user.generateAuthToken();
-      // res.send(doc);
+      res.send(doc);
     }, (e) => {
       res.status(400).send(e);
     });
