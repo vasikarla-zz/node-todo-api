@@ -28,7 +28,7 @@ var UserSchema = new mongoose.Schema({
             required: true
         }
     }]
-});
+}); 
 
 UserSchema.methods.generateAuthToken
 
